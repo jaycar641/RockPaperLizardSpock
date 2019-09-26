@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace GestureGame
 {
-    class Player
+    abstract class Player
     {
-        int score;
-        string name;
+        public int score;
+        public string name;
 
-        public void Start()
-        {
 
-        }
         public abstract void GetGestures();
+      
+
+        public abstract void Start();
+       
+            
+
         
     }
 }

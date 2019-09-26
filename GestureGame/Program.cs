@@ -10,7 +10,8 @@ namespace GestureGame
     {
         static void Main(string[] args)
         {
-
+            Gameplay StartGame = new Gameplay();
+            StartGame.Start();
         }
     }
 }

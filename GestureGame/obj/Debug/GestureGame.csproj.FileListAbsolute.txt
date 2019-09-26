@@ -1,0 +1,6 @@
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\bin\Debug\GestureGame.exe.config
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\bin\Debug\GestureGame.exe
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\bin\Debug\GestureGame.pdb
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\obj\Debug\GestureGame.csprojAssemblyReference.cache
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\obj\Debug\GestureGame.exe
+C:\Users\Jacob\Desktop\GestureGame\GestureGame\obj\Debug\GestureGame.pdb

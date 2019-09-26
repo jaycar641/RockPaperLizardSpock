@@ -8,5 +8,15 @@ namespace GestureGame
 {
     class Computer:Player
     {
+        public override void Start()
+        {
+            GetGestures();
+
+        }
+
+        public override void GetGestures()
+        {
+           
+        }
     }
 }

@@ -24,9 +24,19 @@ namespace GestureGame
             PlayerSelector();
 
 
-            while (!GameOver)
+            while (GameOver == false)
             {
-                CheckResults();
+                string displaylist = " ";
+                foreach(string item in Gestures)
+                {
+
+                    displaylist += " " + item;
+                }
+                Console.WriteLine(FirstPlayer.name + " Please Select an option " + displaylist);
+
+                Console.ReadLine();
+                
+                //CheckResults();
                 //console.Writeline WINNER won this round
             }
         }
@@ -59,13 +69,14 @@ namespace GestureGame
 
         public void CheckResults(string player1result, string player2restult) //Checks results of round and returns gameover, and calls increase score
         {
-            switch()
+          //  switch()
 
 
                 //return winner
         }
-
-        public void IncreaseScore()
+       
+         
+            public void IncreaseScore()
         {
 
         }
