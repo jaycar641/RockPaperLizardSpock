@@ -11,7 +11,10 @@ namespace GestureGame
         int score;
         string name;
 
+        public void Start()
+        {
 
+        }
         public abstract void GetGestures();
         
     }
