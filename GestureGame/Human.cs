@@ -17,10 +17,43 @@ namespace GestureGame
             
         }
 
-        public override void GetGestures()
+        public override string GetGestures()
         {
-            
+          string UserInput = Console.ReadLine();
+
+
+            switch (UserInput)
+            {
+                case "Rock":
+                    UserInput = "Rock";
+                    break;
+                case "Paper":
+                    UserInput = "Paper";
+                    break;
+                case "Scissors":
+                    UserInput = "Scissors";
+                    break;
+                case "Lizards":
+                    UserInput = "Lizard";
+                    break;
+                case "Spock":
+                    UserInput = "Spock";
+                    break;
+
+                default:
+                    {
+                        Console.WriteLine("Please Choose an Option");
+                        GetGestures();
+                        break;
+                    }
+
+            }
+
+            return UserInput;
+
         }
+
+     
 
     }
 }

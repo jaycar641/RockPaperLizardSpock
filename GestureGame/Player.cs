@@ -12,13 +12,12 @@ namespace GestureGame
         public string name;
 
 
-        public abstract void GetGestures();
+        public abstract string GetGestures();
       
 
         public abstract void Start();
-       
-            
 
+        
         
     }
 }
