@@ -76,74 +76,106 @@ namespace GestureGame
 
         }
 
-        public void CheckResults(string player1result, string player2restult) //Checks results of round and returns gameover, and calls increase score
+        public void CheckResults(string PlayerOneGesture, string PlayerTwoGesture) //Checks results of round and returns gameover, and calls increase score
         {
-            string PlayerOneGesture = player1result;
-            string PlayerTwoGesture = player2restult;
+            bool IsValidInput = true;
+         
 
-            if (player1result == player2restult)
+            foreach (string test in Gestures) //can be function that takes input and runs through foreach.
             {
-                Console.WriteLine("Tie");
+                
+                if (PlayerOneGesture == test)
+                {
+                    IsValidInput = true;
+                }
+
             }
 
-            else if (player1result == "rock" && player2restult == "scissors" || player2restult == "lizards")
+            if (IsValidInput == true)
             {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player One Wins this round");
-                FirstPlayer.score += 1;
-            }
 
 
-            else if (player1result == "scissors" && player2restult == "lizards" || player2restult == "paper")
-            {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player One Wins this round");
-                FirstPlayer.score += 1;
-            }
-
-            else if (player1result == "paper" && player2restult == "spock" || player2restult == "rock")
-            {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player One Wins this round");
-                FirstPlayer.score += 1;
-            }
 
 
-            else if (player1result == "spock" && player2restult == "rock" || player2restult == "scissors")
-            {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player One Wins this round");
-                FirstPlayer.score += 1;
-            }
 
 
-            else if (player1result == "lizard" && player2restult == "spock" || player2restult == "paper")
-            {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player One Wins this round");
-                FirstPlayer.score += 1;
+
+                if (PlayerOneGesture == PlayerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+
+                else if (PlayerOneGesture == "rock" ) //example
+                {
+                    if (PlayerTwoGesture == "lizard" || PlayerTwoGesture == "scissors")
+                    {
+                        Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                        Console.ReadLine();
+                        Console.WriteLine("Player One Wins this round");
+                        FirstPlayer.score += 1;
+                    }
+                }
+
+
+                else if (PlayerOneGesture == "scissors")
+                {
+                    Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                    Console.ReadLine();
+                    Console.WriteLine("Player One Wins this round");
+                    FirstPlayer.score += 1;
+                }
+
+                else if (PlayerOneGesture == "paper")
+                {
+                    Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                    Console.ReadLine();
+                    Console.WriteLine("Player One Wins this round");
+                    FirstPlayer.score += 1;
+                }
+
+
+                else if (PlayerOneGesture == "spock")
+                {
+                    Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                    Console.ReadLine();
+                    Console.WriteLine("Player One Wins this round");
+                    FirstPlayer.score += 1;
+                }
+
+
+                else if (PlayerOneGesture == "lizard" )
+                {
+                    Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                    Console.ReadLine();
+                    Console.WriteLine("Player One Wins this round");
+                    FirstPlayer.score += 1;
+                }
+
+                else
+                {
+
+
+                    Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                    Console.ReadLine();
+                    Console.WriteLine("Player Two Wins this round");
+                    SecondPlayer.score += 1;
+
+                }
+
+               
             }
 
             else
             {
-                Console.WriteLine(player2restult);
-                Console.ReadLine();
-                Console.WriteLine("Player Two Wins this round");
-                SecondPlayer.score += 1;
-
+                Console.WriteLine("Please try again");
             }
-
-          
+            PlayerOneGesture = null;
+            PlayerTwoGesture = null;
 
 
         }
 
 
-      
+
     }
 }

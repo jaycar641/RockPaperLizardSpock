@@ -24,20 +24,20 @@ namespace GestureGame
 
             switch (UserInput)
             {
-                case "Rock":
-                    UserInput = "Rock";
+                case "rock":
+                    UserInput = "rock";
                     break;
-                case "Paper":
-                    UserInput = "Paper";
+                case "paper":
+                    UserInput = "paper";
                     break;
-                case "Scissors":
-                    UserInput = "Scissors";
+                case "scissors":
+                    UserInput = "scissors";
                     break;
-                case "Lizards":
-                    UserInput = "Lizard";
+                case "lizards":
+                    UserInput = "lizard";
                     break;
-                case "Spock":
-                    UserInput = "Spock";
+                case "spock":
+                    UserInput = "spock";
                     break;
 
                 default:
