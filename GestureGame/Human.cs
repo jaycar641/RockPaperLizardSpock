@@ -8,7 +8,7 @@ namespace GestureGame
 {
     class Human : Player
     {
-       
+      
         public override void Start()
         {
             Console.WriteLine("Enter your Player Name");
@@ -20,36 +20,35 @@ namespace GestureGame
         public override string GetGestures()
         {
           string UserInput = Console.ReadLine();
-
+            string GestureChoice = "";
 
             switch (UserInput)
             {
                 case "rock":
-                    UserInput = "rock";
+                    GestureChoice = "rock";
                     break;
                 case "paper":
-                    UserInput = "paper";
+                    GestureChoice = "paper";
                     break;
                 case "scissors":
-                    UserInput = "scissors";
+                    GestureChoice = "scissors";
                     break;
-                case "lizards":
-                    UserInput = "lizard";
+                case "lizard":
+                    GestureChoice = "lizard";
                     break;
                 case "spock":
-                    UserInput = "spock";
+                    GestureChoice = "spock";
                     break;
 
                 default:
                     {
                         Console.WriteLine("Please Choose an Option");
-                        GetGestures();
                         break;
                     }
 
             }
 
-            return UserInput;
+            return GestureChoice;
 
         }
 
