@@ -15,9 +15,8 @@ namespace GestureGame
         
         public void gameplay()
         {
-
-
         }
+
         public void Start ()
         {
             Console.WriteLine("Welcome to Rock Paper Scissor Lizard Spock.  The rules are simple:");
@@ -251,6 +250,7 @@ namespace GestureGame
 
         public void CheckWinner()
         {
+
             if (FirstPlayer.score == 2)
             {
                 Console.WriteLine(FirstPlayer.name + " Wins!");

@@ -16,6 +16,7 @@ namespace GestureGame
             if (UserInput == "")
             {
                 UserInput = "Maya";
+                this.name = UserInput;
                 Console.WriteLine("The Computer's Name will be Maya");
 
             }
