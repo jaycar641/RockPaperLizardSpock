@@ -8,8 +8,7 @@ namespace GestureGame
 {
     class Gameplay
     {
-        int score;
-        bool GameOver;
+        bool GameOver = false;
         Player FirstPlayer;
         Player SecondPlayer;
         List<string> Gestures = new List<string> { "rock" , "paper", "scissors", "lizard", "spock" };
@@ -26,28 +25,26 @@ namespace GestureGame
             Console.WriteLine("Rock crushes Scissors \n Scissors cuts Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Spock smashes Scissors \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock");
             Console.WriteLine("\n");
             PlayerSelector();
-
+            
 
             while (GameOver == false)
             {
                 string displaylist = " ";
                 foreach(string item in Gestures)
                 {
-
                     displaylist += " " + item;
                 }
 
                 Console.WriteLine(FirstPlayer.name + " Please Select an option " + displaylist);
-
                 string PlayerOneChoice = FirstPlayer.GetGestures();
+                Console.WriteLine(SecondPlayer.name + " Please Select an option " + displaylist);
                 string PlayerTwoChoice = SecondPlayer.GetGestures();
-               
 
                 CheckResults(PlayerOneChoice, PlayerTwoChoice);
-
-
-              
+                DisplayScore();
+                CheckWinner();
             }
+
         }
 
         public void PlayerSelector()
@@ -57,7 +54,7 @@ namespace GestureGame
             
             switch (UserInput)
             {
-                case "Player vs Player": //Commit after this is done.
+                case "Player vs Player":
                         Console.WriteLine("Two Player Game");
                     this.FirstPlayer = new Human();
                     FirstPlayer.Start();
@@ -72,43 +69,51 @@ namespace GestureGame
                     SecondPlayer.Start();
                     break;
 
+                default:
+                    {
+                        Console.WriteLine("Please enter a correct value");
+                        PlayerSelector();
+                        break;
+                        
+                    }
+
             }
+            
 
         }
 
-        public void CheckResults(string PlayerOneGesture, string PlayerTwoGesture) //Checks results of round and returns gameover, and calls increase score
+        public void CheckResults(string PlayerOneGesture, string PlayerTwoGesture) 
         {
-            bool IsValidInput = true;
-         
+            bool result1 = ValidPrompt(PlayerOneGesture);
+            bool result2 = ValidPrompt(PlayerTwoGesture);
+            Console.WriteLine("\n");
 
-            foreach (string test in Gestures) //can be function that takes input and runs through foreach.
+            if (result1 != true)
             {
-                
-                if (PlayerOneGesture == test)
-                {
-                    IsValidInput = true;
-                }
+                Console.WriteLine("Player One pick a Gesture!");
+               PlayerOneGesture = FirstPlayer.GetGestures();
+            }
+
+            if (result2 != true)
+            {
+                Console.WriteLine("Player Two pick a Gesture!");
+                PlayerTwoGesture = SecondPlayer.GetGestures();
 
             }
 
-            if (IsValidInput == true)
-            {
 
-
-
-
-
-
-
-                if (PlayerOneGesture == PlayerTwoGesture)
+            if (PlayerOneGesture == PlayerTwoGesture)
                 {
-                    Console.WriteLine("Tie");
+                Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
+                Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
+                Console.WriteLine("Tie");
                 }
 
-                else if (PlayerOneGesture == "rock" ) //example
+                else if (PlayerOneGesture == "rock" ) 
                 {
                     if (PlayerTwoGesture == "lizard" || PlayerTwoGesture == "scissors")
                     {
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player One Wins this round");
@@ -116,7 +121,7 @@ namespace GestureGame
                     }
                     else
                     {
-
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player Two Wins this round");
@@ -129,6 +134,7 @@ namespace GestureGame
                 {
                     if (PlayerTwoGesture == "paper" || PlayerTwoGesture == "lizard")
                     {
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player One Wins this round");
@@ -137,7 +143,7 @@ namespace GestureGame
 
                     else
                     {
-
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player Two Wins this round");
@@ -149,6 +155,7 @@ namespace GestureGame
                 {
                     if (PlayerTwoGesture == "rock" || PlayerTwoGesture == "spock")
                     {
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player One Wins this round");
@@ -157,7 +164,7 @@ namespace GestureGame
 
                     else
                     {
-
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player Two Wins this round");
@@ -170,6 +177,7 @@ namespace GestureGame
                 {
                     if (PlayerTwoGesture == "rock" || PlayerTwoGesture == "scissors")
                     {
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player One Wins this round");
@@ -178,7 +186,7 @@ namespace GestureGame
 
                     else
                     {
-
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player Two Wins this round");
@@ -191,6 +199,7 @@ namespace GestureGame
                 {
                     if (PlayerTwoGesture == "spock" || PlayerTwoGesture == "paper")
                     {
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player One Wins this round");
@@ -199,7 +208,7 @@ namespace GestureGame
 
                     else
                     {
-
+                        Console.WriteLine(FirstPlayer.name + " chooses " + PlayerOneGesture);
                         Console.WriteLine(SecondPlayer.name + " chooses " + PlayerTwoGesture);
                         Console.ReadLine();
                         Console.WriteLine("Player Two Wins this round");
@@ -208,20 +217,57 @@ namespace GestureGame
                 }
 
 
-               
-            }
-
-            else
-            {
-                Console.WriteLine("Please try again");
-            }
             PlayerOneGesture = null;
             PlayerTwoGesture = null;
 
 
         }
 
+        public void DisplayScore() 
+        {
+            Console.WriteLine(FirstPlayer.name + " has " + FirstPlayer.score + " and " + SecondPlayer.name + " has " + SecondPlayer.score);
+        
+
+        }
+
+        public bool ValidPrompt(string Gesture)
+        {
+            bool prompt = false;
+            foreach (string test in Gestures)
+            {
+
+                if (Gesture == test)
+                {
+                     prompt = true;
+                }
+
+              
+
+            }
+
+            return prompt;
+
+        }
+
+        public void CheckWinner()
+        {
+            if (FirstPlayer.score == 2)
+            {
+                Console.WriteLine(FirstPlayer.name + " Wins!");
+                Console.Read();
+                GameOver = true;
+            }
 
 
-    }
+            if (SecondPlayer.score == 2)
+            {
+                Console.WriteLine(SecondPlayer.name + " Wins!");
+                Console.Read();
+                GameOver = true;
+
+            }
+
+        }
+
+     }
 }

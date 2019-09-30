@@ -42,9 +42,10 @@ namespace GestureGame
 
                 default:
                     {
-                        Console.WriteLine("Please Choose an Option");
+                        Console.WriteLine("Not a correct option");
                         break;
                     }
+
 
             }
 
