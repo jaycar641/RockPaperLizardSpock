@@ -8,17 +8,22 @@ namespace GestureGame
 {
     class Human : Player
     {
-      
+        public void Player() {
+            Start();
+        }
+
         public override void Start()
         {
             Console.WriteLine("Enter your Player Name");
             string UserInput = Console.ReadLine();
             this.name = UserInput;
+            Console.WriteLine("Thank you " + this.name);
             
         }
 
-        public override string GetGestures()
+        public override string GetGestures(string playerName)
         {
+        Console.WriteLine(playerName + " Please Select an option Rock, Paper, Scissor, Lizard, Spock");
           string UserInput = Console.ReadLine();
             string GestureChoice = "";
 
@@ -42,7 +47,8 @@ namespace GestureGame
 
                 default:
                     {
-                        Console.WriteLine("Not a correct option");
+                  
+                     return null;
                         break;
                     }
 

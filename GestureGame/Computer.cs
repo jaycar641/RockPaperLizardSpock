@@ -8,6 +8,10 @@ namespace GestureGame
 {
     class Computer:Player
     {
+      public void Player() {
+            Start();
+        }
+
         public override void Start()
         {
             Console.WriteLine("Enter the Computer's Name");
@@ -24,7 +28,7 @@ namespace GestureGame
             else
             {
                 this.name = UserInput;
-                Console.WriteLine("The Computer's Name will be " + UserInput);
+                Console.WriteLine("The Computer's Name will be " + this.name);
 
             }
 
@@ -32,7 +36,7 @@ namespace GestureGame
 
         }
 
-        public override string GetGestures()
+        public override string GetGestures(string playerName)
         {
             Random ComputerChoice = new Random();
             int NumberDecision = ComputerChoice.Next(0, 5);
