@@ -12,7 +12,7 @@ namespace GestureGame
         public string name;
 
         public Player() {
-
+        this.Start();
         
 
         }

@@ -11,7 +11,7 @@ namespace GestureGame
         public int score;
         public string name;
         public void Player() {
-            Start();
+        
         }
 
         public override void Start()
