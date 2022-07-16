@@ -15,21 +15,17 @@ namespace GestureGame
         
         public void gameplay()
         {
+            
         }
 
         public void Start ()
         {
-            Console.WriteLine("Welcome to Rock Paper Scissor Lizard Spock.  The rules are simple:");
-            Console.WriteLine("\n");
-            Console.ReadLine();
-            Console.WriteLine("Rock crushes Scissors \n Scissors cuts Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Spock smashes Scissors \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock");
-            Console.WriteLine("\n");
-            Console.ReadLine();
+            introQuote();
             PlayerSelector();
-            
             
             while (GameOver == false)
             {
+                
                 string PlayerTwoChoice = "";
             string PlayerOneChoice = "";
                 try {
@@ -39,11 +35,12 @@ namespace GestureGame
                 }
                 catch(NullReferenceException e) {
                     Console.WriteLine("Not a correct option");
+                    Start();
                 }
                 
    
                 CheckResults(PlayerOneChoice, PlayerTwoChoice);
-                DisplayScore();
+                DisplayScore(FirstPlayer, SecondPlayer);
                 CheckWinner();
             }
 
@@ -84,15 +81,21 @@ namespace GestureGame
         {
 
             
-            
+        string player1Gesture = PlayerOneGesture;   
         string player2Gesture = PlayerTwoGesture;
-            switch(PlayerOneGesture) 
+            if(player1Gesture == player2Gesture) {
+                Console.WriteLine("Player 1 has " + player1Gesture + " and Player 2 has " + player2Gesture);
+                Console.WriteLine("Its a tie");
+                Console.ReadLine();
+                return;
+            }
+            switch(player1Gesture) 
             {
 
                 case "rock":
-                 if(PlayerTwoGesture == "lizard" || PlayerTwoGesture == "scissor")   
+                 if(player2Gesture == "lizard" || player2Gesture == "scissor")   
                  {
-                     Console.WriteLine("Player One Wins this round");
+                     Console.WriteLine("Player 2 has " + player2Gesture + " Player One Wins this round");
                      Console.ReadLine();
                         FirstPlayer.score += 1; 
                  }
@@ -103,8 +106,8 @@ namespace GestureGame
                     }
                 break;
                 case "paper":
-                if(PlayerTwoGesture == "rock" || PlayerTwoGesture == "spock")   {
-                 Console.WriteLine("Player One Wins this round");
+                if(player2Gesture == "rock" || player2Gesture == "spock")   {
+                 Console.WriteLine("Player 2 has " + player2Gesture + " Player One Wins this round");
                                          Console.ReadLine();
                         FirstPlayer.score += 1;
                     }
@@ -115,8 +118,8 @@ namespace GestureGame
                     }
                 break;
                 case "scissor":
-                if(PlayerTwoGesture == "lizard" || PlayerTwoGesture == "paper")  { 
-                     Console.WriteLine("Player One Wins this round");
+                if(player2Gesture == "lizard" || player2Gesture == "paper")  { 
+                     Console.WriteLine("Player 2 has " + player2Gesture + " Player One Wins this round");
                                          Console.ReadLine();
                         FirstPlayer.score += 1;
                     }
@@ -127,8 +130,8 @@ namespace GestureGame
                     }
                 break;
                 case "lizard":
-                if(PlayerTwoGesture == "spock" || PlayerTwoGesture == "paper")   {
-                     Console.WriteLine("Player One Wins this round");
+                if(player2Gesture == "spock" || player2Gesture == "paper")   {
+                     Console.WriteLine("Player 2 has " + player2Gesture + " Player One Wins this round");
                                          Console.ReadLine();
                         FirstPlayer.score += 1;
                     }
@@ -139,8 +142,8 @@ namespace GestureGame
                     }
                 break;
                     case "spock":
-                if(PlayerTwoGesture == "rock" || PlayerTwoGesture == "scissor")   {
-                     Console.WriteLine("Player One Wins this round");
+                if(player2Gesture == "rock" || player2Gesture == "scissor")   {
+                     Console.WriteLine("Player 2 has " + player2Gesture + " Player One Wins this round");
                                          Console.ReadLine();
                         FirstPlayer.score += 1;
                     }
@@ -151,17 +154,16 @@ namespace GestureGame
                     }
                 break;
                 default:
-                                 Console.WriteLine("Its a tie");
-                                 Console.ReadLine();
+                  CheckResults(player1Gesture, player2Gesture);               
                 break;
             }
 
            
         }
 
-        public void DisplayScore() 
+        public void DisplayScore(Player FirstPlayer, Player SecondPlayer) 
         {
-            Console.WriteLine(FirstPlayer.name + " has " + FirstPlayer.score + " and " + SecondPlayer.name + " has " + SecondPlayer.score);
+            Console.WriteLine("Player 1 has " + FirstPlayer.score + " and Player 2 has " + SecondPlayer.score);
         
 
         }
@@ -172,7 +174,7 @@ namespace GestureGame
 
             if (FirstPlayer.score == 2)
             {
-                Console.WriteLine(FirstPlayer.name + " Wins!");
+                Console.WriteLine("Player 1 Wins!");
                 Console.Read();
                 GameOver = true;
             }
@@ -180,12 +182,20 @@ namespace GestureGame
 
             if (SecondPlayer.score == 2)
             {
-                Console.WriteLine(SecondPlayer.name + " Wins!");
+                Console.WriteLine("Player 2 Wins!");
                 Console.Read();
                 GameOver = true;
 
             }
 
+        }
+
+        public void introQuote() {
+
+            Console.WriteLine("Welcome to Rock Paper Scissor Lizard Spock.  The rules are simple:");
+            Console.ReadLine();
+            Console.WriteLine("Rock crushes Scissors, Scissors cuts Paper \n Paper covers Rock, Rock crushes Lizard \n Lizard poisons Spock, Spock smashes Scissors \n Scissors decapitates Lizard, Lizard eats Paper, \n Paper disproves Spock, Spock vaporizes Rock");
+            Console.ReadLine();
         }
 
      }

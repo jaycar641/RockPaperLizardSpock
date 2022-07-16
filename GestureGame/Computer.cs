@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace GestureGame
 {
     class Computer:Player
     {
+        public int score;
+        public string name;
       public void Player() {
             Start();
         }

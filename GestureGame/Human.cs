@@ -8,6 +8,8 @@ namespace GestureGame
 {
     class Human : Player
     {
+        public int score;
+        public string name;
         public void Player() {
             Start();
         }
@@ -46,11 +48,9 @@ namespace GestureGame
                     break;
 
                 default:
-                    {
-                  
-                     return null;
+                     GestureChoice = null;
                         break;
-                    }
+                    
 
 
             }
